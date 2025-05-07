@@ -1,90 +1,93 @@
+/* Reset universal para eliminar márgenes, padding y estilos por defecto */
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    text-decoration: none;
-    list-style: none;    
+    margin: 0; /* Elimina el margen externo por defecto */
+    padding: 0; /* Elimina el relleno interno por defecto */
+    box-sizing: border-box; /* Hace que el ancho/alto incluyan padding y border */
+    text-decoration: none; /* Quita subrayados de enlaces */
+    list-style: none; /* Elimina viñetas de listas */
 }
 
+/* Definición de variables CSS globales para reuso */
 :root {
-    --bg-primario-gradient:
-        linear-gradient(to top, rgb(184, 0, 245), rgb(255, 255, 255));
-    --bg-primario: linear-gradient(to bottom, rgb(184, 0, 245), white);
-    --bg-secundario: rgb(98, 2, 129);
-    --txt-primario: rgb(0, 0, 0);
-    --arial: 'Arial', sans-serif;
-    --sombra-chica: 0px 0px 5px rgba(0, 0, 0, 0.5);
-    --sombra-grande: 0px 0px 20px rgba(255, 255, 255, 0.5);
+    --bg-primario-gradient: linear-gradient(to top, rgb(184, 0, 245), rgb(255, 255, 255)); /* Degradado de fondo vertical ascendente */
+    --bg-primario: linear-gradient(to bottom, rgb(184, 0, 245), white); /* Degradado descendente */
+    --bg-secundario: rgb(98, 2, 129); /* Color secundario sólido */
+    --txt-primario: rgb(0, 0, 0); /* Color de texto principal */
+    --arial: 'Arial', sans-serif; /* Fuente principal */
+    --sombra-chica: 0px 0px 5px rgba(0, 0, 0, 0.5); /* Sombra sutil */
+    --sombra-grande: 0px 0px 20px rgba(255, 255, 255, 0.5); /* Sombra más amplia y luminosa */
 }
 
+/* Estilos generales del body del documento */
 body {
-    height: 100vh;
-    background: var(--bg-primario-gradient);
-    color: white;
-    font-family: var(--arial);
+    height: 100vh; /* Ocupa toda la altura de la ventana */
+    background: var(--bg-primario-gradient); /* Usa el degradado definido */
+    color: white; /* Color del texto general */
+    font-family: var(--arial); /* Aplica la fuente definida */
 }
 
+/* Contenedor de bienvenida */
 .bienvenida {
-    display: flex;
-    flex-direction: column;
-    height: 60%;
-    justify-content: center;
-    align-items: center;
-    gap: 16px;
-    color: black
+    display: flex; /* Activa el modelo de caja flexible */
+    flex-direction: column; /* Acomoda los elementos en columna */
+    height: 60%; /* Ocupa el 60% de la altura del viewport */
+    justify-content: center; /* Centra verticalmente */
+    align-items: center; /* Centra horizontalmente */
+    gap: 16px; /* Espacio entre los elementos hijos */
+    color: black; /* Texto en negro (sobrescribe el blanco global) */
 }
 
+/* Estilo del logo principal */
 .logo {
-    height: 80px;
-    width: 110px;
-    margin: auto;
-    mix-blend-mode: multiply;
+    height: 80px; /* Altura fija del logo */
+    width: 110px; /* Ancho fijo */
+    margin: auto; /* Centrado automático */
+    mix-blend-mode: multiply; /* Mezcla de colores para integrar con el fondo */
 }
 
+/* Logo especial de bienvenida */
 .logoBienvenida {
-    height: 20vh;
-    /* 20% de la altura de la ventana del navegador */
-    width: 80vw;
-    /* 20% del ancho de la ventana del navegador */
-    filter: drop-shadow(var(--sombra-grande));
-    /* Agrega una sombra grande a la imagen */
+    height: 20vh; /* 20% de la altura de la ventana */
+    width: 80vw; /* 80% del ancho de la ventana */
+    filter: drop-shadow(var(--sombra-grande)); /* Aplica sombra definida a la imagen */
 }
 
+/* Contenedor del formulario de login */
 .login {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    height: 40%;
-    padding: 4em;
-    gap: .5em;
+    display: flex; /* Flexbox para acomodar campos y botones */
+    flex-direction: column; /* Elementos en columna */
+    justify-content: center; /* Centrado vertical */
+    align-items: center; /* Centrado horizontal */
+    height: 40%; /* Ocupa el 40% restante del viewport */
+    padding: 4em; /* Espaciado interno amplio */
+    gap: .5em; /* Separación entre campos */
 
+    /* Estilos compartidos para inputs de email y contraseña */
     input[type="email"],
     input[type="password"] {
-        width: 100%;
-        height: 2.4em;
-        padding: 1em;
-        border-radius: .25em;
-        border: none;
+        width: 100%; /* Ocupan todo el ancho disponible */
+        height: 2.4em; /* Altura fija */
+        padding: 1em; /* Espaciado interno */
+        border-radius: .25em; /* Bordes redondeados */
+        border: none; /* Sin borde visible */
     }
+
+    /* Botón de login */
     .boton {
-        width: 100%;
-        height: 2.4em;
-        background: var(--bg-secundario);
-        color: white;
-        border-radius: .25em;
-        border: none;
-        cursor: pointer;
-        font-weight: bold;
-        text-align: center;
-        /* Centra el texto horizontalmente */
-        line-height: 2.4em;
-        /* Centra el texto verticalmente */
+        width: 100%; /* Ancho completo */
+        height: 2.4em; /* Altura fija */
+        background: var(--bg-secundario); /* Fondo con el color secundario */
+        color: white; /* Texto blanco */
+        border-radius: .25em; /* Bordes redondeados */
+        border: none; /* Sin borde */
+        cursor: pointer; /* Cambia el cursor al pasar por encima */
+        font-weight: bold; /* Texto en negrita */
+        text-align: center; /* Centra horizontalmente el texto */
+        line-height: 2.4em; /* Centra verticalmente el texto */
     }
 }
 
-
-
-/* *{
-    outline: dashed 1px red;
-} */
+/* Comentario opcional para depuración visual */
+/* * {
+    outline: dashed 1px red; /* Muestra los bordes de todos los elementos con líneas rojas */
+    /* } */
